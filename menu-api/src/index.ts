@@ -25,6 +25,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 app.use("/api/menu/items", itemsRouter);
+app.use("/MemberOffspring", itemsRouter);
 /**
  * Server Activation
  */

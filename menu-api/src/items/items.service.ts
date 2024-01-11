@@ -5,9 +5,14 @@
  */
 import { BaseItem, Item } from "./item.interface";
 import { Items } from "./items.interface";
+import { Offspring } from "./item.interface";
 /**
  * In-Memory Store
  */
+let offspring : Offspring ={
+  name: "child1"
+}
+
 let items: Items = {
   1: {
     id: 1,
@@ -36,7 +41,8 @@ let items: Items = {
  * Service Methods
  */
 
-export const findAll = async (): Promise<Item[]> => Object.values(items);
+
+export const findAll = async (): Promise<Item[]> => Object.values( offspring);
 
 export const find = async (id: number): Promise<Item> => items[id];
 export const create = async (newItem: BaseItem): Promise<Item> => {
