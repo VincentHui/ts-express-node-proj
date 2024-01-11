@@ -5,7 +5,6 @@
  */
 import { BaseItem, Item } from "./item.interface";
 import { Items } from "./items.interface";
-
 /**
  * In-Memory Store
  */
@@ -36,10 +35,10 @@ let items: Items = {
 /**
  * Service Methods
  */
+
 export const findAll = async (): Promise<Item[]> => Object.values(items);
 
 export const find = async (id: number): Promise<Item> => items[id];
-
 export const create = async (newItem: BaseItem): Promise<Item> => {
   const id = new Date().valueOf();
 
