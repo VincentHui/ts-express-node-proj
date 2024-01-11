@@ -14,9 +14,7 @@ export const itemsRouter = express.Router();
  */
 itemsRouter.get("/", async (req: Request, res: Response) => {
   try {
-    const offspring: Offspring[] = await ItemService.findAll();
-
-    res.status(200).send(offspring);
+    res.status(200).send(["burger", "fries"]);
   } catch (e: any) {
     res.status(500).send(e.message);
   }
