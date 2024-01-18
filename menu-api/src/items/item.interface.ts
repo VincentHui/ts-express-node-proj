@@ -8,3 +8,7 @@ export interface BaseItem {
 export interface Item extends BaseItem {
   id: number;
 }
+
+export interface Offspring {
+  name: string;
+}
