@@ -46,13 +46,13 @@ app.use("/MemberOffspring", offspringRouter);
 const familyBenRouter = express.Router();
 familyBenRouter.get("/", async (req: Request, res: Response) => {
   try {
-    res.status(200).send({
-      offspring: [
+    res
+      .status(200)
+      .send([
         { name: "femaleParentalUnit" },
         { name: "maleParentalUnit" },
         { name: "offspringunit1" },
-      ],
-    });
+      ]);
   } catch (e: any) {
     res.status(500).send(e.message);
   }
