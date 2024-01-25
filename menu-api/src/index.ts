@@ -42,6 +42,22 @@ offspringRouter.get("/", async (req: Request, res: Response) => {
   }
 });
 app.use("/MemberOffspring", offspringRouter);
+
+const familyBenRouter = express.Router();
+familyBenRouter.get("/", async (req: Request, res: Response) => {
+  try {
+    res.status(200).send({
+      offspring: [
+        { name: "femaleParentalUnit" },
+        { name: "maleParentalUnit" },
+        { name: "offspringunit1" },
+      ],
+    });
+  } catch (e: any) {
+    res.status(500).send(e.message);
+  }
+});
+app.use("/family", familyBenRouter);
 /**
  * Server Activation
  */
