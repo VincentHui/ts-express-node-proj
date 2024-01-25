@@ -24,7 +24,7 @@ itemsRouter.get("/", async (req: Request, res: Response) => {
 
 familyRouter.get("/", async (req: Request, res: Response) => {
   try {
-    res.status(200).send([{ message: "does not exist" }]);
+    res.status(200).send({ message: "does not exist" });
   } catch (e: any) {
     res.status(500).send(e.message);
   }
