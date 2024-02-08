@@ -9,3 +9,10 @@ export interface BaseFamily {
 export interface FamilyItem extends BaseFamily {
   id: number;
 }
+
+// FAMILY MEMEBER MODEL
+export interface FamilyMember {
+  name: string;
+  parent?: string;
+  offspring?: string[];
+}

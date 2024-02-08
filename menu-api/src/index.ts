@@ -8,7 +8,10 @@ import helmet from "helmet";
 import { familyRouter } from "./items/Family.router";
 import express, { Request, Response } from "express";
 import { Offspring } from "./items/Family.interface";
+import { findMember } from "./items/FindMember.service";
 
+// TEST BOI
+console.log(findMember("san"));
 dotenv.config();
 /**
  * App Variables
