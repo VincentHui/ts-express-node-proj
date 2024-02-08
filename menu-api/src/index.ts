@@ -5,7 +5,6 @@ import * as dotenv from "dotenv";
 // import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { familyRouter } from "./items/Family.router";
 import express, { Request, Response } from "express";
 import { Offspring } from "./items/Family.interface";
 import { findMember } from "./items/FindMember.service";
@@ -30,7 +29,6 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-app.use("/familyMemberExists", familyRouter);
 
 const offspringRouter = express.Router();
 offspringRouter.get("/", async (req: Request, res: Response) => {
@@ -43,6 +41,16 @@ offspringRouter.get("/", async (req: Request, res: Response) => {
   }
 });
 app.use("/MemberOffspring", offspringRouter);
+
+const familyRouter = express.Router();
+familyRouter.get("/", async (req: Request, res: Response) => {
+  try {
+    res.status(200).send([{ message: "does not exist" }]);
+  } catch (e: any) {
+    res.status(500).send(e.message);
+  }
+});
+app.use("/familyMemberExists", familyRouter);
 
 const familyBenRouter = express.Router();
 familyBenRouter.get("/", async (req: Request, res: Response) => {
