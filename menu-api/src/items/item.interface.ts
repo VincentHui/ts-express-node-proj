@@ -12,3 +12,9 @@ export interface Item extends BaseItem {
 export interface Offspring {
   name: string;
 }
+// FAMILY MEMEBER MODEL 
+export interface FamilyMember {
+  name: string;
+  parent?: string;
+  offspring?: string[];
+}

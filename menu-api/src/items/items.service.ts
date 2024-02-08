@@ -6,12 +6,38 @@
 import { BaseItem, Item } from "./item.interface";
 import { Items } from "./items.interface";
 import { Offspring } from "./item.interface";
+// FAMILY MEMBER MODEL
+import { FamilyMember } from "./item.interface";
 /**
  * In-Memory Store
  */
 let offspring: Offspring = {
   name: "child1",
 };
+
+
+// FAMILY ARRAY AND FUNCTION TO FIND FAMILY MEMBER 
+const familyTree: FamilyMember[] = [
+  {
+    name: "san",
+    offspring: ["ben", "sam"],
+  },
+  {
+    parent: "san",
+    name: "ben",
+  },
+  {
+    parent: "san",
+    name: "sam",
+  },
+];
+
+const findMember = (name: string): FamilyMember | undefined => {
+  return familyTree.find((member: FamilyMember) => member.name === name);
+};
+// TEST BOI
+console.log(findMember("sam"));
+
 
 let items: Items = {
   1: {
