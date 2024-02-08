@@ -5,10 +5,9 @@ import * as dotenv from "dotenv";
 // import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { itemsRouter } from "./items/items.router";
-import { familyRouter } from "./items/items.router";
+import { familyRouter } from "./items/Family.router";
 import express, { Request, Response } from "express";
-import { Offspring } from "./items/item.interface";
+import { Offspring } from "./items/Family.interface";
 
 dotenv.config();
 /**
@@ -28,7 +27,6 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-app.use("/api/menu/items", itemsRouter);
 app.use("/familyMemberExists", familyRouter);
 
 const offspringRouter = express.Router();
@@ -46,13 +44,13 @@ app.use("/MemberOffspring", offspringRouter);
 const familyBenRouter = express.Router();
 familyBenRouter.get("/", async (req: Request, res: Response) => {
   try {
-    res
-      .status(200)
-      .send([
+    res.status(200).send({
+      FamilyUnits: [
         { name: "femaleParentalUnit" },
         { name: "maleParentalUnit" },
         { name: "offspringunit1" },
-      ]);
+      ],
+    });
   } catch (e: any) {
     res.status(500).send(e.message);
   }
