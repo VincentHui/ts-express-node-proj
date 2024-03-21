@@ -8,12 +8,7 @@ import helmet from "helmet";
 import express, { Request, Response } from "express";
 import { Offspring } from "./items/Family.interface";
 import { findMember } from "./items/FindMember.service";
-import {
-  huiFamilyOne,
-  huiFamilyTwo,
-  oldBoy1,
-  oldBoy2,
-} from "./items/Family.tree";
+import { huiFamily, firstborn } from "./items/Family.tree";
 
 // TEST BOI
 console.log(findMember("san"));
@@ -62,11 +57,10 @@ app.use("/familyMemberExists", familyRouter);
 const familyBenRouter = express.Router();
 familyBenRouter.get("/", async (req: Request, res: Response) => {
   try {
-    huiFamilyOne;
-    huiFamilyTwo;
-    oldBoy1;
-    oldBoy2;
-    res.status(200).send({ huiFamilyOne, huiFamilyTwo });
+    huiFamily;
+    firstborn;
+
+    res.status(200).send({ huiFamily });
   } catch (e: any) {
     res.status(500).send(e.message);
   }
@@ -76,16 +70,14 @@ app.use("/family", familyBenRouter);
 const oldBoyRouter = express.Router();
 oldBoyRouter.get("/", async (req: Request, res: Response) => {
   try {
-    huiFamilyOne;
-    huiFamilyTwo;
-    oldBoy1;
-    oldBoy2;
-    res.status(200).send({ oldBoy1, oldBoy2 });
+    huiFamily;
+    firstborn;
+    res.status(200).send({ firstborn });
   } catch (e: any) {
     res.status(500).send(e.message);
   }
 });
-app.use("/family/oldboy", oldBoyRouter);
+app.use("/family/firstborn", oldBoyRouter);
 //THIS IS THE END OF BENS STUFF
 
 /**
