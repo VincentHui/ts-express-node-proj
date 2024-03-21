@@ -13,6 +13,9 @@ export interface FamilyItem extends BaseFamily {
 // FAMILY MEMEBER MODEL
 export interface FamilyMember {
   name: string;
-  parent?: string;
+  parent?: string[];
   offspring?: string[];
+  DOB: string;
+  sibling?: string;
+  family: string;
 }
