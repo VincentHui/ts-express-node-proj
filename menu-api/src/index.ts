@@ -8,15 +8,11 @@ import helmet from "helmet";
 import express, { Request, Response } from "express";
 import { Offspring } from "./items/Family.interface";
 import { findMember } from "./items/FindMember.service";
-import {
-  huiFamilyOne,
-  huiFamilyTwo,
-  oldBoy1,
-  oldBoy2,
-} from "./items/Family.tree";
+import { getOffspring } from "./items/FindMember.service";
 
 // TEST BOI
 console.log(findMember("san"));
+console.log(getOffspring("san"));
 dotenv.config();
 /**
  * App Variables
