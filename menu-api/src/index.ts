@@ -13,6 +13,7 @@ import { huiFamily, firstborn } from "./items/Family.tree";
 // TEST BOI
 console.log(findMember("san"));
 dotenv.config();
+
 /**
  * App Variables
  */
@@ -57,9 +58,6 @@ app.use("/familyMemberExists", familyRouter);
 const familyBenRouter = express.Router();
 familyBenRouter.get("/", async (req: Request, res: Response) => {
   try {
-    huiFamily;
-    firstborn;
-
     res.status(200).send({ huiFamily });
   } catch (e: any) {
     res.status(500).send(e.message);
@@ -70,8 +68,6 @@ app.use("/family", familyBenRouter);
 const oldBoyRouter = express.Router();
 oldBoyRouter.get("/", async (req: Request, res: Response) => {
   try {
-    huiFamily;
-    firstborn;
     res.status(200).send({ firstborn });
   } catch (e: any) {
     res.status(500).send(e.message);
