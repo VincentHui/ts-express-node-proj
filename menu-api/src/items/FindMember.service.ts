@@ -20,3 +20,10 @@ export const familyTree: FamilyMember[] = [
 export const findMember = (name: string): FamilyMember | undefined => {
   return familyTree.find((member: FamilyMember) => member.name === name);
 };
+export const getOffspring = (name: string): string[] | undefined => {
+  const member = findMember(name);
+  if (member && member.offspring) {
+    return member.offspring;
+  }
+  return undefined;
+};

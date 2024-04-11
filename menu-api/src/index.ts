@@ -9,11 +9,12 @@ import express, { Request, Response } from "express";
 import { Offspring } from "./items/Family.interface";
 import { findMember } from "./items/FindMember.service";
 import { huiFamily, firstborn } from "./items/Family.tree";
+import { getOffspring } from "./items/FindMember.service";
 
 // TEST BOI
 console.log(findMember("san"));
 dotenv.config();
-
+console.log(getOffspring("san"));
 /**
  * App Variables
  */
@@ -32,17 +33,17 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-const offspringRouter = express.Router();
-offspringRouter.get("/", async (req: Request, res: Response) => {
-  try {
-    res.status(200).send({
-      offspring: [{ name: "child1" }, { name: "child2" }],
-    });
-  } catch (e: any) {
-    res.status(500).send(e.message);
-  }
-});
-app.use("/MemberOffspring", offspringRouter);
+// const offspringRouter = express.Router();
+// offspringRouter.get("/", async (req: Request, res: Response) => {
+//   try {
+//     res.status(200).send({
+//       offspring: [{ name: "child1" }, { name: "child2" }],
+//     });
+//   } catch (e: any) {
+//     res.status(500).send(e.message);
+//   }
+// });
+// app.use("/MemberOffspring", offspringRouter);
 
 const familyRouter = express.Router();
 familyRouter.get("/", async (req: Request, res: Response) => {
