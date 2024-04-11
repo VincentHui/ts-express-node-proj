@@ -3,18 +3,18 @@
  */
 import * as dotenv from "dotenv";
 // import express from "express";
+import { huiFamily, firstborn } from "./items/Family.tree";
 import cors from "cors";
 import helmet from "helmet";
 import express, { Request, Response } from "express";
 import { Offspring } from "./items/Family.interface";
 import { findMember } from "./items/FindMember.service";
-import { huiFamily, firstborn } from "./items/Family.tree";
 import { getOffspring } from "./items/FindMember.service";
 
 // TEST BOI
 console.log(findMember("san"));
-dotenv.config();
 console.log(getOffspring("san"));
+dotenv.config();
 /**
  * App Variables
  */
