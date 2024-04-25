@@ -3,6 +3,7 @@
  */
 import * as dotenv from "dotenv";
 // import express from "express";
+import { huiFamily, firstborn } from "./items/Family.tree";
 import cors from "cors";
 import helmet from "helmet";
 import express, { Request, Response } from "express";
@@ -32,17 +33,17 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-const offspringRouter = express.Router();
-offspringRouter.get("/", async (req: Request, res: Response) => {
-  try {
-    res.status(200).send({
-      offspring: [{ name: "child1" }, { name: "child2" }],
-    });
-  } catch (e: any) {
-    res.status(500).send(e.message);
-  }
-});
-app.use("/MemberOffspring", offspringRouter);
+// const offspringRouter = express.Router();
+// offspringRouter.get("/", async (req: Request, res: Response) => {
+//   try {
+//     res.status(200).send({
+//       offspring: [{ name: "child1" }, { name: "child2" }],
+//     });
+//   } catch (e: any) {
+//     res.status(500).send(e.message);
+//   }
+// });
+// app.use("/MemberOffspring", offspringRouter);
 
 const familyRouter = express.Router();
 familyRouter.get("/", async (req: Request, res: Response) => {
@@ -58,11 +59,7 @@ app.use("/familyMemberExists", familyRouter);
 const familyBenRouter = express.Router();
 familyBenRouter.get("/", async (req: Request, res: Response) => {
   try {
-    huiFamilyOne;
-    huiFamilyTwo;
-    oldBoy1;
-    oldBoy2;
-    res.status(200).send({ huiFamilyOne, huiFamilyTwo });
+    res.status(200).send({ huiFamily });
   } catch (e: any) {
     res.status(500).send(e.message);
   }
@@ -72,16 +69,12 @@ app.use("/family", familyBenRouter);
 const oldBoyRouter = express.Router();
 oldBoyRouter.get("/", async (req: Request, res: Response) => {
   try {
-    huiFamilyOne;
-    huiFamilyTwo;
-    oldBoy1;
-    oldBoy2;
-    res.status(200).send({ oldBoy1, oldBoy2 });
+    res.status(200).send({ firstborn });
   } catch (e: any) {
     res.status(500).send(e.message);
   }
 });
-app.use("/family/oldboy", oldBoyRouter);
+app.use("/family/firstborn", oldBoyRouter);
 //THIS IS THE END OF BENS STUFF
 
 /**
